@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+function myFunction()
+{
+var x = document.cookie;
+console.log(x.substring(9))
+var xnew = x.substring(9).split(" ")
+console.log(xnew[0])
+console.log(xnew[1])
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", "https://api.spotify.com/v1/search?q=track:famous%20artist:"+xnew[0]+"&type=track", false ); // false for synchronous request
+xmlHttp.send( null );
+var y = xmlHttp.responseText;
+console.log(y);
+var object = JSON.parse(y)
+document.getElementById("demo").innerHTML =object.tracks.items[0].name + " by " + object.tracks.items[0].artists[0].name
+}
+</script>
+</head>
+<body>
+<button onclick="myFunction()">Submit</button>
+<div id="demo"><h2>Let api call change this text</h2></div>
+</body>
+</html>

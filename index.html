@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+function myFunction()
+{
+var nameValue = document.getElementById("uniqueID").value;
+console.log(nameValue)
+document.cookie = "username="+nameValue;
+var x = document.cookie;
+console.log(x)
+window.location.href = "test_1.html";
+}
+</script>
+</head>
+<body>
+<input type="text" name="name" id="uniqueID">
+<button onclick="myFunction()">Submit</button>
+</body>
+</html>

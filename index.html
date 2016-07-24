@@ -4,11 +4,12 @@
 <script>
 function myFunction()
 {
+document.cookie = 'cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
 var nameValue = document.getElementById("uniqueID").value;
 console.log(nameValue)
 var songValue = document.getElementById("uniqueID1").value;
 console.log(songValue)
-document.cookie = nameValue + ","+songValue;
+document.cookie = "cookie="+nameValue + ","+songValue;
 var x = document.cookie;
 console.log(x)
 window.location.href = "test_1.html";

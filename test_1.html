@@ -6,7 +6,12 @@ function myFunction()
 {
 var x = document.cookie;
 console.log(x)
-var xnew = x.split(",")
+var xnew = x.substring(7).split(",")
+if(xnew[1].indexOf('&') > -1)
+{
+    xnew[1] = xnew[1].replace(" ", "")
+	xnew[1] = xnew[1].replace("&", " ")
+}
 console.log(xnew[0])
 console.log(xnew[1])
 var xmlHttp = new XMLHttpRequest();

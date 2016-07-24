@@ -5,12 +5,12 @@
 function myFunction()
 {
 var x = document.cookie;
-console.log(x.substring(9))
-var xnew = x.substring(9).split(" ")
+console.log(x)
+var xnew = x.split(",")
 console.log(xnew[0])
 console.log(xnew[1])
 var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", "https://api.spotify.com/v1/search?q=track:pt.2%20artist:"+xnew[0]+"&type=track", false ); // false for synchronous request
+xmlHttp.open( "GET", "https://api.spotify.com/v1/search?q=track:"+xnew[1]+"%20artist:"+xnew[0]+"&type=track", false ); // false for synchronous request
 xmlHttp.send( null );
 var y = xmlHttp.responseText;
 console.log(y);

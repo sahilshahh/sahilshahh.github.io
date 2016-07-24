@@ -6,7 +6,9 @@ function myFunction()
 {
 var nameValue = document.getElementById("uniqueID").value;
 console.log(nameValue)
-document.cookie = "username="+nameValue;
+var songValue = document.getElementById("uniqueID1").value;
+console.log(songValue)
+document.cookie = nameValue + ","+songValue;
 var x = document.cookie;
 console.log(x)
 window.location.href = "test_1.html";
@@ -14,7 +16,8 @@ window.location.href = "test_1.html";
 </script>
 </head>
 <body>
-<input type="text" name="name" id="uniqueID">
+<h2>Artist First Name: <input type="text" name="name" id="uniqueID"></h2>
+<h2>Song Title: <input type="text" name="name" id="uniqueID1"></h2>
 <button onclick="myFunction()">Submit</button>
 </body>
 </html>

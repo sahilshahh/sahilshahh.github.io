@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<title>Result Page</title>
 <script>
 function myFunction()
 {
@@ -20,7 +21,7 @@ xmlHttp.send( null );
 var y = xmlHttp.responseText;
 console.log(y);
 var object = JSON.parse(y)
-document.getElementById("demo").innerHTML =object.tracks.items[0].name + " by " + object.tracks.items[0].artists[0].name
+document.getElementById("demo").innerHTML =object.tracks.items[0].name + " by " + object.tracks.items[0].artists[0].name + '<br></div><img width="150" src="' + object.tracks.items[0].album.images[1].url + '">'
 var audio = new Audio();
 audio.src = object.tracks.items[0].preview_url;
 audio.play();

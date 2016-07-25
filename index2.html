@@ -2,18 +2,43 @@
 <html lang="en">
   <head>
 
-    <title>Home Page</title>
+    <title>Results Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="cover.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+    function myFunction()
+    {
+      var x = document.cookie;
+      console.log(x)
+      var xnew = x.substring(7).split(",")
+      if(xnew[1].indexOf('&') > -1)
+      {
+          xnew[1] = xnew[1].replace(" ", "")
+        xnew[1] = xnew[1].replace("&", " ")
+      }
+      console.log(xnew[0])
+      console.log(xnew[1])
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "https://api.spotify.com/v1/search?q=track:"+xnew[1]+"%20artist:"+xnew[0]+"&type=track", false ); // false for synchronous request
+      xmlHttp.send( null );
+      var y = xmlHttp.responseText;
+      console.log(y);
+      var object = JSON.parse(y)
+      document.getElementById("demo").innerHTML ='<br></div><img width="150" src="' + object.tracks.items[0].album.images[1].url + '"><br><h2>'+object.tracks.items[0].name + " by " + object.tracks.items[0].artists[0].name+'</h2>';
+      var audio = new Audio();
+      audio.src = object.tracks.items[0].preview_url;
+      audio.play();
+    }
+    </script>
     <!-- <link rel="icon" href="../../favicon.ico"> -->
 
   </head>
 
-  <body>
+  <body onload="myFunction()">
 
     <div class="site-wrapper">
 
@@ -35,11 +60,11 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Enhance your Spotify Experience</h1>
-            <p class="lead">Use this web tool to help you fond songs that fit your exact mood. You can also add them to your Spotify playlist.</p>
-            <p class="lead">
-              <a href="index1.html" class="btn btn-lg btn-default">Get Started</a>
-            </p>
+              <div class="row text-center" style="border-style:none;">
+                  <div id="demo">
+                    
+                  </div>
+              </div>
           </div>
 
           <div class="mastfoot">

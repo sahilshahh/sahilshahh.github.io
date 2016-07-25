@@ -1,25 +1,34 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Search Page</title>
-<script>
-function myFunction()
-{
-document.cookie = 'cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
-var nameValue = document.getElementById("uniqueID").value;
-console.log(nameValue)
-var songValue = document.getElementById("uniqueID1").value;
-console.log(songValue)
-document.cookie = "cookie="+nameValue + ","+songValue;
-var x = document.cookie;
-console.log(x)
-window.location.href = "test_1.html";
-}
-</script>
+  <title>Search Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script>
+  function myFunction()
+  {
+	document.cookie = 'cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+	var nameValue = document.getElementById("uniqueID").value;
+	console.log(nameValue)
+	var songValue = document.getElementById("uniqueID1").value;
+	console.log(songValue)
+	document.cookie = "cookie="+nameValue + ","+songValue;
+	var x = document.cookie;
+	console.log(x)
+	window.location.href = "test.html";
+  }
+  </script>
 </head>
 <body>
-<h2>Artist Name: <input type="text" name="name" id="uniqueID"></h2>
-<h2>Song Title: <input type="text" name="name" id="uniqueID1"></h2>
-<button onclick="myFunction()">Submit</button>
+
+<div class="container-fluid">
+  <h2>Artist Name: <input type="text" name="name" id="uniqueID"></h2>
+  <h2>Song Title: <input type="text" name="name" id="uniqueID1"></h2>
+  <button onclick="myFunction()">Submit</button>
+</div>
+
 </body>
 </html>

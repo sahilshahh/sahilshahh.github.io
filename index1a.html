@@ -21,12 +21,9 @@
       var x = document.cookie;
       console.log(x)
 
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", "http://cors.io/?u=https://accounts.spotify.com/authorize?client_id=e456e2c0cc544bfd94369068e8613c34&redirect_uri=https:%2F%2sahilshahh.github.io%2Findex1a&response_type=token&state=123", false ); 
-      xmlHttp.send( null );
-      var y = xmlHttp.responseText;
+      
 
-      window.location.href = "index2.html";
+      window.location = "https://accounts.spotify.com/authorize?client_id=e456e2c0cc544bfd94369068e8613c34&redirect_uri=https:%2F%2Fsahilshahh.github.io%2Findex1a&response_type=token&state=123";
     }
 
 

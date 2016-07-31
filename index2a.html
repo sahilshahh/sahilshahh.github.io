@@ -28,7 +28,7 @@
       console.log(xnew[3]);
 
       var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", "https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy="+xnew[0]+"&min_popularity="+xnew[1]+"&danceability="+xnew[2], false ); // false for synchronous request
+      xmlHttp.open( "GET", "https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&energy="+xnew[0]+"&popularity="+xnew[1]+"&danceability="+xnew[2], false ); // false for synchronous request
       xmlHttp.setRequestHeader('Authorization','Bearer ' + xnew[3]);
       xmlHttp.send( null );
       var y = xmlHttp.responseText;
@@ -76,7 +76,7 @@
                 <ul class="nav masthead-nav">
                   <li><a href="index.html">Home</a></li>
                   <li><a href="index1.html">Listen</a></li>
-                  <li class="active"><a href="index1a.html">Search</a></li>
+                  <li class="active"><a href="https://accounts.spotify.com/authorize?client_id=e456e2c0cc544bfd94369068e8613c34&redirect_uri=https:%2F%2Fsahilshahh.github.io%2Findex1a&response_type=token&state=123">Search</a></li>
                   <li><a href="https://github.com/sahilshahh">Contact</a></li>
                 </ul>
               </nav>

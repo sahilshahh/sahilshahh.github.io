@@ -27,12 +27,11 @@ html,
 body {
   height: 100%;
   background-color: #333;
-  background: url(images/bg1.jpg) no-repeat center center fixed; 
+  background: url(images/bg_solid1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  /*background-size: cover;*/
-  background-size:100% auto;
+  background-size: cover;
 }
 body {
   color: #fff;

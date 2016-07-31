@@ -2,13 +2,33 @@
 <html lang="en">
   <head>
 
-    <title>Home Page</title>
+    <title>Search Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="cover.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+    function myFunction()
+    {
+      document.cookie = 'cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+      var nameValue = document.getElementById("uniqueID").value;
+      console.log(nameValue)
+      var songValue = document.getElementById("uniqueID1").value;
+      console.log(songValue)
+      document.cookie = "cookie="+nameValue + ","+songValue;
+      var x = document.cookie;
+      console.log(x)
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "https://accounts.spotify.com/authorize?client_id=e456e2c0cc544bfd94369068e8613c34&redirect_uri=https:%2F%2sahilshahh.github.io%2Findex1a&response_type=token&state=123", false ); 
+      xmlHttp.send( null );
+      var y = xmlHttp.responseText;
+
+      window.location.href = "index2.html";
+    }
+    </script>
     <!-- <link rel="icon" href="../../favicon.ico"> -->
 
   </head>
@@ -35,12 +55,12 @@
           </div>
 
           <div class="inner cover">
-            <h3 class="cover-heading">Enhance your Spotify Experience</h3>
-            <p class="lead">Use this web tool to help you find songs that fit your exact mood. You can also add them to your Spotify playlist.</p>
-            <p class="lead">
-              <a href="index1.html" class="btn btn-lg btn-default">Listen to a song</a>
-              <a href="index1a.html" class="btn btn-lg btn-default">Search for a song</a>
-            </p>
+              <div class="row text-center" style="border-style:none;">
+                <h3>Enter information about your song:</h3>
+                <h4>Song Title - <input type="text" class="halp" name="name" id="uniqueID1"></h4>
+                <h4>Artist Name - <input type="text" class="halp" name="name" id="uniqueID"></h4>
+                <button class="btn btn-lg btn-default" onclick="myFunction()">Submit</button>
+              </div>
           </div>
 
           <div class="mastfoot">

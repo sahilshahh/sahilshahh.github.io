@@ -25,10 +25,11 @@
       console.log(xnew[0]);
       console.log(xnew[1]);
       console.log(xnew[2]);
+      console.log(xnew[3]);
 
       var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", "https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy="+xnew[0]+"&min_popularity="+xnew[1]+"&market=US", false ); // false for synchronous request
-      xmlHttp.setRequestHeader('Authorization','Bearer ' + xnew[2]);
+      xmlHttp.open( "GET", "https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy="+xnew[0]+"&min_popularity="+xnew[1]+"&danceability="+xnew[2], false ); // false for synchronous request
+      xmlHttp.setRequestHeader('Authorization','Bearer ' + xnew[3]);
       xmlHttp.send( null );
       var y = xmlHttp.responseText;
       console.log(y);

@@ -13,10 +13,12 @@
     function myFunction()
     {
       document.cookie = 'cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
-      var nameValue = document.getElementById("uniqueID").value;
-      console.log(nameValue)
-      var songValue = document.getElementById("uniqueID1").value;
-      console.log(songValue)
+      var energy = document.getElementById("uniqueID").value;
+      console.log(energy)
+      var pop = document.getElementById("uniqueID1").value;
+      console.log(pop)
+      var dance = document.getElementById("uniqueID2").value;
+      console.log(dance)
 
       var url = window.location.href;
       console.log(url);
@@ -24,7 +26,7 @@
       var token = token_part[0].split("=");
       console.log(token[1]);
       
-      document.cookie = "cookie="+nameValue + ","+songValue + "," + token[1];
+      document.cookie = "cookie="+nameValue + ","+songValue + "," + dance + "," + token[1];
       var x = document.cookie;
       console.log(x);
 
@@ -52,7 +54,7 @@
                 <ul class="nav masthead-nav">
                   <li><a href="index.html">Home</a></li>
                   <li><a href="index1.html">Listen</a></li>
-                  <li class="active"><a href="index1a.html">Search</a></li>>
+                  <li class="active"><a href="index1a.html">Search</a></li>
                   <li><a href="https://github.com/sahilshahh">Contact</a></li>
                 </ul>
               </nav>
@@ -62,8 +64,9 @@
           <div class="inner cover">
               <div class="row text-center" style="border-style:none;">
                 <h3>Enter information about your song:</h3>
-                <h4>Min Energy - <input type="text" class="halp" name="name" id="uniqueID"></h4>
-                <h4>Min Popularity - <input type="text" class="halp" name="name" id="uniqueID1"></h4>
+                <h4>Min Energy - <input type="text" class="halp" name="name" id="uniqueID" placeholder="0.0-1.0"></h4>
+                <h4>Min Popularity - <input type="text" class="halp" name="name" id="uniqueID1" placeholder="0-100"></h4>
+                <h4>Min Danceability - <input type="text" class="halp" name="name" id="uniqueID2" placeholder="0-100"></h4>
                 <button class="btn btn-lg btn-default" onclick="myFunction()">Submit</button>
               </div>
           </div>

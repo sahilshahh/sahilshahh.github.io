@@ -24,7 +24,7 @@
       var token = token_part[0].split("=");
       console.log(token[1]);
       
-      document.cookie = "cookie="+nameValue + ","+songValue + "," token[1];
+      document.cookie = "cookie="+nameValue + ","+songValue + "," + token[1];
       var x = document.cookie;
       console.log(x);
 
@@ -61,8 +61,8 @@
           <div class="inner cover">
               <div class="row text-center" style="border-style:none;">
                 <h3>Enter information about your song:</h3>
-                <h4>Min Energy - <input type="text" class="halp" name="name" id="uniqueID1"></h4>
-                <h4>Min Popularity - <input type="text" class="halp" name="name" id="uniqueID"></h4>
+                <h4>Min Energy - <input type="text" class="halp" name="name" id="uniqueID"></h4>
+                <h4>Min Popularity - <input type="text" class="halp" name="name" id="uniqueID1"></h4>
                 <button class="btn btn-lg btn-default" onclick="myFunction()">Submit</button>
               </div>
           </div>

@@ -41,7 +41,7 @@
 
     function listTracks(object){
       var string = ""
-      for( i=0; i>object.tracks.length; i++){
+      for( i=0; i<object.tracks.length; i++){
         string += '<br></div><img width="150" src="' + object.tracks[i].album.images[0].url + '"><br><h3>'+object.tracks[i].name + " by " + object.tracks[i].artists[0].name+'</h3>';
       }
       return string;

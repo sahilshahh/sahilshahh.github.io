@@ -48,6 +48,9 @@
     }
 
     function playSong(url){
+      if (audioObject) {
+        audioObject.pause();
+      }
       var audio = new Audio(url);
       audio.play();
     }

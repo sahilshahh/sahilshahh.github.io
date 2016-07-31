@@ -31,11 +31,20 @@
       xmlHttp.send( null );
       var y = xmlHttp.responseText;
       console.log(y);
+
       var object = JSON.parse(y)
-      document.getElementById("demo").innerHTML ='<br></div><img width="150" src="' + object.tracks.items[0].album.images[1].url + '"><br><h3>'+object.tracks.items[0].name + " by " + object.tracks.items[0].artists[0].name+'</h3>';
-      var audio = new Audio();
-      audio.src = object.tracks.items[0].preview_url;
-      audio.play();
+      document.getElementById("demo").innerHTML = listTracks(object);
+      //var audio = new Audio();
+      //audio.src = object.tracks.items[0].preview_url;
+      //audio.play();
+    }
+
+    function listTracks(object){
+      var string = ""
+      for( i=0; i>object.tracks.length; i++){
+        string += '<br></div><img width="150" src="' + object.tracks[i].album.images[0].url + '"><br><h3>'+object.tracks[i].name + " by " + object.tracks[i].artists[0].name+'</h3>';
+      }
+      return string;
     }
     </script>
     <!-- <link rel="icon" href="../../favicon.ico"> -->

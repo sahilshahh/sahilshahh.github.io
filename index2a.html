@@ -42,14 +42,13 @@
     function listTracks(object){
       var string = ""
       for( i=0; i<object.tracks.length; i++){
-        string += '<br></div><img width="150" src="' + object.tracks[i].album.images[0].url + '"><br><h3>'+object.tracks[i].name + " by " + object.tracks[i].artists[0].name+'</h3> <br> <button class="btn btn-lg btn-default" value="'+object.tracks[i].preview_url+'" onclick="playSong(this.value)">Play</button>';
+        string += '<br><br></div><img width="150" src="' + object.tracks[i].album.images[0].url + '"><br><h3>'+object.tracks[i].name + " by " + object.tracks[i].artists[0].name+'</h3><button class="btn btn-sm btn-default" value="'+object.tracks[i].preview_url+'" onclick="playSong(this.value)">Play</button>';
       }
       return string;
     }
 
     function playSong(url){
-      var audio = new Audio();
-      audio.src = url;
+      var audio = new Audio(url);
       audio.play();
     }
     </script>
@@ -70,8 +69,9 @@
               <h2 class="masthead-brand">Spotify Companion</h2>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="index.html">Home</a></li>
-                  <li><a href="index1.html">Tool</a></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="index1.html">Play A Song</a></li>
+                  <li class="active"><a href="index1a.html">Find A Song</a></li>
                   <li><a href="https://github.com/sahilshahh">Contact</a></li>
                 </ul>
               </nav>

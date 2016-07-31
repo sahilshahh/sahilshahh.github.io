@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-    <title>Search Page</title>
+    <title>Results Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -12,26 +12,31 @@
     <script>
     function myFunction()
     {
-      document.cookie = 'cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
-      var nameValue = document.getElementById("uniqueID").value;
-      console.log(nameValue)
-      var songValue = document.getElementById("uniqueID1").value;
-      console.log(songValue)
-
-      var url = window.location.href;
-      console.log(url);
-      var token_part = url.split("&");
-      var token = token_part[0].split("=");
-      console.log(token[1]);
-      
-      document.cookie = "cookie="+nameValue + ","+songValue + "," token[1];
       var x = document.cookie;
       console.log(x);
+      var xnew = x.substring(7).split(",")
+      if(xnew[1].indexOf('&') > -1)
+      {
+        xnew[1] = xnew[1].replace(" ", "");
+        xnew[1] = xnew[1].replace("&", " ");
+      }
 
-      window.location.href = "index2.html";
+      console.log(xnew[0]);
+      console.log(xnew[1]);
+      console.log(xnew[2]);
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", "https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy="+xnew[0]+"&min_popularity="+xnew[1]+"&market=US", false ); // false for synchronous request
+      xmlHttp.setRequestHeader('Authorization','Bearer ' + xnew[2]);
+      xmlHttp.send( null );
+      var y = xmlHttp.responseText;
+      console.log(y);
+      var object = JSON.parse(y)
+      document.getElementById("demo").innerHTML ='<br></div><img width="150" src="' + object.tracks.items[0].album.images[1].url + '"><br><h3>'+object.tracks.items[0].name + " by " + object.tracks.items[0].artists[0].name+'</h3>';
+      var audio = new Audio();
+      audio.src = object.tracks.items[0].preview_url;
+      audio.play();
     }
-
-
     </script>
     <!-- <link rel="icon" href="../../favicon.ico"> -->
 
@@ -60,10 +65,9 @@
 
           <div class="inner cover">
               <div class="row text-center" style="border-style:none;">
-                <h3>Enter information about your song:</h3>
-                <h4>Min Energy - <input type="text" class="halp" name="name" id="uniqueID1"></h4>
-                <h4>Min Popularity - <input type="text" class="halp" name="name" id="uniqueID"></h4>
-                <button class="btn btn-lg btn-default" onclick="myFunction()">Submit</button>
+                  <div id="demo">
+                    <button class="btn btn-lg btn-default" onclick="myFunction()">Play Song</button>
+                  </div>
               </div>
           </div>
 

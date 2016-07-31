@@ -42,9 +42,15 @@
     function listTracks(object){
       var string = ""
       for( i=0; i<object.tracks.length; i++){
-        string += '<br></div><img width="150" src="' + object.tracks[i].album.images[0].url + '"><br><h3>'+object.tracks[i].name + " by " + object.tracks[i].artists[0].name+'</h3>';
+        string += '<br></div><img width="150" src="' + object.tracks[i].album.images[0].url + '"><br><h3>'+object.tracks[i].name + " by " + object.tracks[i].artists[0].name+'</h3> <br> <button class="btn btn-lg btn-default" value="'+object.tracks[i].preview_url+'" onclick="playSong(this.value)">Play</button>';
       }
       return string;
+    }
+
+    function playSong(url){
+      var audio = new Audio();
+      audio.src = url;
+      audio.play();
     }
     </script>
     <!-- <link rel="icon" href="../../favicon.ico"> -->
@@ -75,7 +81,7 @@
           <div class="inner cover">
               <div class="row text-center" style="border-style:none;">
                   <div id="demo">
-                    <button class="btn btn-lg btn-default" onclick="myFunction()">Play Song</button>
+                    <button class="btn btn-lg btn-default" onclick="myFunction()">Search for songs</button>
                   </div>
               </div>
           </div>
